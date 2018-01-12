@@ -1,9 +1,17 @@
 #!/bin/bash
 
-free_mem=`free -m | awk {'print $6'} | grep -v available | head -n 1`
+#This will check the memory and restart the 
 
-if [[ free_mem < 1024 ]]; then
+available_mem=`free -m | awk {'print $7'} | sed -n '2p'`
+echo "available memory: $available_mem"
 
-        sudo systemctl restart atomic-openshift-master.service
+# Check if the memory if below 1300
+if [[ $available_mem < 1300 ]]; then
+
+#Restart the openshift master service  
+                sudo systemctl restart atomic-openshift-master.service
+
+#Log the same in the  /var/mail/cloud-user                
+                echo 'memory cleanup executed'
 fi
 
