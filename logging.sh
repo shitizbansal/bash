@@ -93,9 +93,9 @@ cat > ./pv.yaml << 'EOF'
     - name: NFS_PATH
       value: ${NFS_PATH}
     - name: NFS_SRV
-      value: "nfs1"
+      value: "nfs"
     - name: SIZE
-      value: "50Gi"
+      value: "100Gi"
 EOF
 
 #Read the nfs export path to be presented to the ES.
