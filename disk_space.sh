@@ -21,6 +21,6 @@
 	    $space1" ;;
 	esac
 	
-	`echo -e $Message | mail -s "Disk Usage alert" shitiz@live.in`
+	`echo -e $Message | mail -s "Disk Usage alert" ${email_address}`
 
 
